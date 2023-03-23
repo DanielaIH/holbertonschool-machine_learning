@@ -5,4 +5,8 @@ import numpy as np
 
 def matrix_shape(matrix):
     """shape of a matrix"""
-    return(np.array(np.shape(matrix)))
+    size = []
+    while(type(matrix) is list):
+        size.append(len(matrix))
+        matrix = matrix[0]
+    return size
