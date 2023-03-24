@@ -7,12 +7,16 @@ def cat_matrices2D(mat1, mat2, axis=0):
     new_matrix = []
     try:
         if (axis):
+            if (len(mat1) != len(mat2)):
+                return None
             new_matrix = [row[:] for row in mat1]
             for i in range(len(mat1)):
                 new_matrix[i] += mat2[i]
             return(new_matrix)
         new_matrix = [row[:] for row in mat1]
         for i in range(len(mat2)):
+            if (len(mat1[i]) != len(mat2[i])):
+                return None
             try:
                 if (len(mat1[i]) == 0):
                     return None
