@@ -8,4 +8,4 @@ def poly_integral(poly, C=0):
         return None
     if len(poly) == 1:
         return [0]
-    return [C] + [(poly[i] / (i + 1)) if (poly[i] / (i + 1)) % 1 == 0 else int((poly[i] / (i + 1))) for i in range(len(poly))]
+    return [C] + [(poly[i] / (i + 1)) if (poly[i] / (i + 1)) % 1 != 0 else int((poly[i] / (i + 1))) for i in range(len(poly))]
