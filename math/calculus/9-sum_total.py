@@ -10,7 +10,3 @@ def summation_i_squared(n):
         return n
     else:
         return (n ** 2) + summation_i_squared(n - 1)
-
-
-a = summation_i_squared(5)
-print(a)
