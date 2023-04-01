@@ -8,6 +8,11 @@ def poly_integral(poly, C=0):
         return None
     if len(poly) == 1:
         return [C]
-    
-    x = lambda i:i if i % 1 != 0 else i
-    return [C] + [x(poly[i] / (i + 1)) for i in range(len(poly))]
+
+    new_poly = []
+    for i in range(len(poly)):
+        integral = poly[i] / (i + 1)
+        if (integral) % 1 == 0:
+            integral = int(integral)
+        new_poly.append(integral)
+    return [C] + new_poly
