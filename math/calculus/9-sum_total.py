@@ -4,7 +4,7 @@
 
 def summation_i_squared(n):
     """summation i squared"""
-    sum = 0
-    for i in range(n):
-        sum += ((i + 1) ** 2)
-    return sum
+    if n <= 1:
+        return (n ** 2)
+    else:
+        return (n ** 2) + summation_i_squared(n - 1)
