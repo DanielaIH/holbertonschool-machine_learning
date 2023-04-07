@@ -5,6 +5,7 @@
 class Poisson:
     """class Poisson"""
     e = 2.7182818285
+
     def __init__(self, data=None, lambtha=1.):
         """class Poisson"""
         if data is None:
