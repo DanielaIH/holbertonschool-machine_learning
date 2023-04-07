@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-import math
 """class Poisson that represents a poisson distribution"""
 
 
 class Poisson:
     """class Poisson"""
+    e = 2.7182818285
     def __init__(self, data=None, lambtha=1.):
         """class Poisson"""
         if data is None:
@@ -20,8 +20,11 @@ class Poisson:
 
     def pmf(self, k):
         k = int(k)
+        factorial = 1
         if k < 0:
             return 0
         else:
+            for i in range(1, k + 1):
+                factorial *= i
             return ((self.lambtha ** k) *
-                    (math.exp(-self.lambtha)) / math.factorial(k))
+                    (self.e ** -self.lambtha) / factorial)
