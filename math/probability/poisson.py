@@ -7,7 +7,7 @@ class Poisson:
     e = 2.7182818285
 
     def __init__(self, data=None, lambtha=1.):
-        """class Poisson"""
+        """class Poisson __init__"""
         if data is None:
             if lambtha <= 0:
                 raise ValueError("lambtha must be a positive value")
@@ -20,6 +20,7 @@ class Poisson:
             self.lambtha = float(sum(data)) / len(data)
 
     def pmf(self, k):
+        """calculates the pmf"""
         k = int(k)
         factorial = 1
         if k < 0:
