@@ -20,17 +20,3 @@ class Normal:
             self.mean = sum(data) / len(data)
             self.stddev = (sum((x - self.mean) ** 2 for x in data)
                            / (len(data) - 1)) ** (0.5)
-
-    def pdf(self, x):
-        """lambda e^{{-lambda x}}"""
-        if x < 0:
-            return 0
-        else:
-            return self.lambtha * (self.e ** (- self.lambtha * x))
-
-    def cdf(self, x):
-        """{ 1-e^{-lambda x}}"""
-        if x < 0:
-            return 0
-        else:
-            return 1 - (self.e ** (- self.lambtha * x))
