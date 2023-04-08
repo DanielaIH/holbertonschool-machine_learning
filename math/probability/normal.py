@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-import numpy as np
 """class Normal that represents a normal distribution"""
 
 
