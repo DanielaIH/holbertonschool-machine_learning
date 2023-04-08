@@ -38,4 +38,3 @@ class Poisson:
             return 0
         else:
             return sum(self.pmf(i) for i in range(k + 1))
-        
