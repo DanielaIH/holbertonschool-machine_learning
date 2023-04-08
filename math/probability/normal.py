@@ -4,6 +4,8 @@
 
 class Normal:
     """class Normal"""
+    e = 2.7182818285
+    pi = 3.141592653
 
     def __init__(self, data=None, mean=0., stddev=1.):
         """class Normal __init__"""
@@ -28,3 +30,13 @@ class Normal:
     def x_value(self, z):
         """calculates x value"""
         return self.mean + z * self.stddev
+
+    def pdf(self, x):
+        """calculates pdf"""
+        if x < 0:
+            return 0
+        else:
+            exp = (-(x - self.mean) ** 2) / (2 * self.stddev ** 2)
+            num = self.e ** (exp)
+            den = self.stddev * (2 * self.pi) ** 0.5
+        return num / den
