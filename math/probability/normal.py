@@ -37,3 +37,14 @@ class Normal:
         num = self.e ** (exp)
         den = self.stddev * (2 * self.pi) ** 0.5
         return float(num / den)
+
+    def erf(self, x):
+        """calculates error"""
+        x1 = 2 / self.pi ** 0.5
+        x2 = x - (x**3 / 3) + (x**5 / 10) - (x**7 / 42) + (x**9 / 216)
+        return x1 * x2
+
+    def cdf(self, x):
+        """calculates cdf"""
+        z = (x - self.mean) / (self.stddev * (2 ** 0.5))
+        return (self.erf(z) + 1) / 2
