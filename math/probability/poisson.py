@@ -30,3 +30,10 @@ class Poisson:
                 factorial *= i
             return ((self.lambtha ** k) *
                     (self.e ** -self.lambtha) / factorial)
+
+    def cdf(self, k):
+        k = int(k)
+        if k < 0:
+            return 0
+        else:
+            return sum(self.pmf(i) for i in range(k + 1))
