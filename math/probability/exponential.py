@@ -25,3 +25,10 @@ class Exponential:
             return 0
         else:
             return self.lambtha * (self.e ** (- self.lambtha * x))
+
+    def cdf(self, x):
+        """{ 1-e^{-lambda x}}"""
+        if x < 0:
+            return 0
+        else:
+            return 1 - (self.e ** (- self.lambtha * x))
