@@ -33,10 +33,7 @@ class Normal:
 
     def pdf(self, x):
         """calculates pdf"""
-        if x < 0:
-            return 0
-        else:
-            exp = (-(x - self.mean) ** 2) / (2 * self.stddev ** 2)
-            num = self.e ** (exp)
-            den = self.stddev * (2 * self.pi) ** 0.5
-        return num / den
+        exp = (-(x - self.mean) ** 2) / (2 * self.stddev ** 2)
+        num = self.e ** (exp)
+        den = self.stddev * (2 * self.pi) ** 0.5
+        return float (num / den)
