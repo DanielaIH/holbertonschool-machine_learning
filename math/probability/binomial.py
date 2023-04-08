@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
 """class Binomial that represents a Binomial distribution"""
 
+def factorial(x):
+        """calculates the factorial"""
+        factorial = 1
+        for i in range(1, x + 1):
+            factorial *= i
+        return factorial
 
 class Binomial:
     """class Binomial"""
@@ -26,3 +32,20 @@ class Binomial:
             self.p = 1 - (stddev / mean)
             self.n = round(mean / self.p)
             self.p = mean / self.n
+
+    def pmf(self, k):
+        """Calculates pmf"""
+        if k < 0:
+            return 0
+        k = int(k)
+        ncx = (factorial(self.n)
+               / (factorial(self.n - k)
+                  * factorial(k)))
+        return ncx * self.p ** k * (1 - self.p) ** (self.n - k)
+
+    def cdf(self, k):
+        """Calculates cdf"""
+        if k < 0:
+            return 0
+        k = int(k)
+        return sum(self.pmf(i) for i in range(k + 1))
