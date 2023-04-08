@@ -20,3 +20,11 @@ class Normal:
             self.mean = float(sum(data)) / len(data)
             self.stddev = (sum((x - self.mean) ** 2 for x in data)
                            / len(data)) ** (0.5)
+
+    def z_score(self, x):
+        """calculates z score"""
+        return (x - self.mean) / self.stddev
+
+    def x_value(self, z):
+        """calculates x value"""
+        return self.mean + z * self.stddev
