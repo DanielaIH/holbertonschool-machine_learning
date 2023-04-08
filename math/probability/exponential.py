@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""class Poisson that represents a poisson distribution"""
+"""class Exponential that represents a Exponential distribution"""
 
 
 class Exponential:
