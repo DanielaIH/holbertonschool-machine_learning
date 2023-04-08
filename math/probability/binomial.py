@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 """class Binomial that represents a Binomial distribution"""
 
+
 def factorial(x):
-        """calculates the factorial"""
-        factorial = 1
-        for i in range(1, x + 1):
-            factorial *= i
-        return factorial
+    """calculates the factorial"""
+    factorial = 1
+    for i in range(1, x + 1):
+        factorial *= i
+    return factorial
+
 
 class Binomial:
     """class Binomial"""
