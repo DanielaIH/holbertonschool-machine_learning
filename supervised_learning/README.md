@@ -1,6 +1,3 @@
-# math
+# supervised_learning
 Machine learning projects at Holberton School Specialization program :)
-### linear_algebra
-### plotting
-### calculus
-### probability
+### classification
