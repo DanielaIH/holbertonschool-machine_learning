@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-import numpy as np
 """0. Neuron"""
+import numpy as np
 
 
 class Neuron:
