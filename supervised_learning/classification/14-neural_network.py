@@ -23,7 +23,7 @@ class NeuralNetwork:
         self.__A1 = 0
 
         self.__W2 = np.random.randn(1, nodes)
-        self.__b2 = np.zeros((nodes, 1))
+        self.__b2 = 0
         self.__A2 = 0
 
     @property
@@ -78,10 +78,10 @@ class NeuralNetwork:
         m = Y.shape[1]
         dZ2 = A2 - Y
         dW2 = (1 / m) * np.matmul(dZ2, A1.T)
-        db2 = (1 / m) * np.sum(dZ2)
+        db2 = (1 / m) * np.sum(dZ2, axis=1, keepdims=True)
         dZ1 = np.matmul(self.__W2.T, dZ2) * A1 * (1 - A1)
         dW1 = (1 / m) * np.matmul(dZ1, X.T)
-        db1 = (1 / m) * np.sum(dZ1)
+        db1 = (1 / m) * np.sum(dZ1, axis=1, keepdims=True)
         self.__W1 -= alpha * dW1
         self.__b1 -= alpha * db1
         self.__W2 -= alpha * dW2
