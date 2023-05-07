@@ -68,9 +68,9 @@ class NeuralNetwork:
 
     def evaluate(self, X, Y):
         """Evaluates the neural network's predictions"""
-        self.forward_prop(X)
-        cost = self.cost(Y, self.__A2)
-        prediction = np.where(self.__A2 >= 0.5, 1, 0)
+        A = self.forward_prop(X)[1]
+        cost = self.cost(Y, A)
+        prediction = np.where(A >= 0.5, 1, 0)
         return prediction, cost
 
     def gradient_descent(self, X, Y, A1, A2, alpha=0.05):
