@@ -23,13 +23,13 @@ class DeepNeuralNetwork:
         self.weights = {}
 
         """inicializar los pesos y sesgos de la red con He et aL"""
-        for la in range(1, self.L+1):
-            if layers[la - 1] < 1:
+        for la in range(0, self.L):
+            if layers[la] < 1:
                 raise TypeError("layers must be a list of positive integers")
-            if la == 1:
+            if la == 0:
                 l_prev = nx
             else:
-                l_prev = layers[la - 2]
-            self.weights["W"+str(la)] = (np.random.randn(layers[la-1], l_prev)
-                                         * np.sqrt(2/nx))
-            self.weights["b"+str(la)] = np.zeros((layers[la-1], 1))
+                l_prev = layers[la - 1]
+            self.weights['W' + str(la + 1)] = np.random.randn(
+                layers[la], l_prev) * np.sqrt(2 / l_prev)
+            self.weights['b' + str(la + 1)] = np.zeros((layers[la], 1))
