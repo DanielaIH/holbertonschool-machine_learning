@@ -8,6 +8,7 @@ class DeepNeuralNetwork:
     network performing binary classification"""
 
     def __init__(self, nx, layers):
+        """Initialize the Deep Neural Network"""
         if not isinstance(nx, int):
             raise TypeError("nx must be an integer")
         if nx < 1:
@@ -22,9 +23,14 @@ class DeepNeuralNetwork:
         self.weights = {}
 
         """inicializar los pesos y sesgos de la red con He et aL"""
-        for l in range(1, self.L+1):
-            if layers[l - 1] < 1:
+        for la in range(1, self.L+1):
+            if layers[la - 1] < 1:
                 raise TypeError("layers must be a list of positive integers")
-            self.weights["W" + str(l)] = (np.random.randn(layers[l-1], nx)
-                                          * np.sqrt(2/nx))
-            self.weights["b" + str(l)] = np.zeros((layers[l-1], 1))
+            if la == 1:
+                l_prev = nx
+            else:
+                l_prev = layers[la - 1]
+            self.weights["W"+str(la)] = (np.random.randn(layers[la-1], l_prev)
+                                         * np.sqrt(2/nx))
+            self.weights["b"+str(la)] = np.zeros((layers[la-1], 1))
+            nx = layers[la - 1]
