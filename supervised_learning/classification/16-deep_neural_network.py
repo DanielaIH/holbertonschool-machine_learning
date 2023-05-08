@@ -29,7 +29,7 @@ class DeepNeuralNetwork:
             if la == 1:
                 l_prev = nx
             else:
-                l_prev = layers[la - 1]
+                l_prev = layers[la - 2]
             self.weights["W"+str(la)] = (np.random.randn(layers[la-1], l_prev)
                                          * np.sqrt(2/nx))
             self.weights["b"+str(la)] = np.zeros((layers[la-1], 1))
