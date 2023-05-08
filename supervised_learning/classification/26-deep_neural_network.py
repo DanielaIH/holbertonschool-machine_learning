@@ -117,6 +117,14 @@ class DeepNeuralNetwork:
         with open(filename, 'wb') as f:
             pickle.dump(self, f)
 
+    def load(filename):
+        """Loads a pickled DeepNeuralNetwork object"""
+        try:
+            with open(filename, 'rb') as f:
+                return pickle.load(f)
+        except FileNotFoundError:
+            return None
+
     @property
     def L(self):
         return self.__L
